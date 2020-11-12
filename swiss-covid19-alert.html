@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Swiss Covid19 Alert</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Expires" content="0">
+		<meta http-equiv="refresh" content="600">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.css" integrity="sha512-fxF1t7b0mpb/ytjBeSu/OpgXxCVcX5/O8AJGYvHaWmNfi/lYLtttitFK17K4iKBva4iU9dcZ+BIV7dyD/nDdSw==" crossorigin="anonymous" />
+		<link rel="stylesheet" href="./css/swisscovid19.css">
+	</head>
+	<body class="bg-dark">
+		<nav class="navbar navbar-dark fixed-top navbar-top navbar-expand-lg">
+			<div class="container">
+				<div class="d-flex flex-row">
+					<div class="p-2 flex-grow-1 bg-none">Swiss Covid19 Alert</div>
+					<div class="p-2 bg-none">
+12-11-20 07:46
+</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="jumbotron jumbotron-fluid jumbotron-cases" style="display:none">
+			<div class="container">
+				<h1 class="display-4">Infection Risk</h1>
+				<p class="lead">How many people have COVID19 in a group of 1000 people?</p>
+			</div>
+		</div>
+		<div class="jumbotron jumbotron-fluid jumbotron-beds" style="display:none">
+			<div class="container">
+				<h1 class="display-4">Hospital Beds&nbsp;</h1>
+				<p class="lead">What is the percent of hospital beds used by COVID19 patients?</p>
+			</div>
+		</div>
+		<div class="jumbotron jumbotron-fluid jumbotron-icus" style="display:none">
+			<div class="container">
+				<h1 class="display-4">Hospital ICUs&nbsp;</h1>
+				<p class="lead">What is the percent of hospital ICUs used by COVID19 patients?</p>
+			</div>
+		</div>
+		<div class="jumbotron jumbotron-fluid jumbotron-trends" style="display:none">
+			<div class="container">
+				<h1 class="display-4">Cases Growth&nbsp;&nbsp;</h1>
+				<p class="lead">How fast are COVID19 cases doubling in number of days?</p>
+			</div>
+		</div>
+		<div class="container container-card">
+			<div class="card text-left bg-dark text-white card-cases" style="display:none">
+				<img class="img_CH" src="./img/CH_Cases.png" alt="CH_Cases">
+			</div>
+			<div class="card text-left bg-dark text-white card-cases" style="display:none">
+				<div class="table-responsive">
+					<table class="table table-image table-dark">
+						<thead class="thtable">
+							<tr>
+								<th class="thcanton" scope="col"><p></br></p></th>
+								<th class="thtrend" scope="col"></th>
+								<th class="thvalue" scope="col"><p>LAST</br>14 DAYS</p></th>
+								<th class="thimage" scope="col"><p>LAST</br>10 WEEKS</p></th>
+							</tr>
+						</thead>
+						<tbody class="tb-table">
+							<tr class="tr-canton tr-canton-FR">
+								<td class="tdcanton align-middle">FR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#FF0000">&nbsp;27 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/FR_Cases.png" alt="FR_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GE">
+								<td class="tdcanton align-middle">GE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#D80026">&nbsp;23 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GE_Cases.png" alt="GE_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-JU">
+								<td class="tdcanton align-middle">JU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#BD0041">&nbsp;20 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/JU_Cases.png" alt="JU_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VD">
+								<td class="tdcanton align-middle">VD</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#BA0044">&nbsp;20 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VD_Cases.png" alt="VD_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VS">
+								<td class="tdcanton align-middle">VS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#B70047">&nbsp;20 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VS_Cases.png" alt="VS_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NE">
+								<td class="tdcanton align-middle">NE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#B1004D">&nbsp;19 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NE_Cases.png" alt="NE_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TI">
+								<td class="tdcanton align-middle">TI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#7B0083">&nbsp;13 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TI_Cases.png" alt="TI_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AI">
+								<td class="tdcanton align-middle">AI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#680096">&nbsp;11 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AI_Cases.png" alt="AI_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SG">
+								<td class="tdcanton align-middle">SG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5D00A1">&nbsp;10 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SG_Cases.png" alt="SG_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BE">
+								<td class="tdcanton align-middle">BE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5400AA">&nbsp;9 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BE_Cases.png" alt="BE_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-LU">
+								<td class="tdcanton align-middle">LU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5000AE">&nbsp;9 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/LU_Cases.png" alt="LU_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZH">
+								<td class="tdcanton align-middle">ZH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4D00B1">&nbsp;8 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZH_Cases.png" alt="ZH_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SZ">
+								<td class="tdcanton align-middle">SZ</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4B00B3">&nbsp;8 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SZ_Cases.png" alt="SZ_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AR">
+								<td class="tdcanton align-middle">AR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4B00B3">&nbsp;8 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AR_Cases.png" alt="AR_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GL">
+								<td class="tdcanton align-middle">GL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4900B5">&nbsp;8 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GL_Cases.png" alt="GL_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AG">
+								<td class="tdcanton align-middle">AG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4600B8">&nbsp;8 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AG_Cases.png" alt="AG_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SO">
+								<td class="tdcanton align-middle">SO</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4300BB">&nbsp;7 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SO_Cases.png" alt="SO_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NW">
+								<td class="tdcanton align-middle">NW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4200BC">&nbsp;7 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NW_Cases.png" alt="NW_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GR">
+								<td class="tdcanton align-middle">GR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4000BE">&nbsp;7 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GR_Cases.png" alt="GR_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SH">
+								<td class="tdcanton align-middle">SH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3C00C2">&nbsp;7 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SH_Cases.png" alt="SH_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZG">
+								<td class="tdcanton align-middle">ZG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3C00C2">&nbsp;6 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZG_Cases.png" alt="ZG_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-UR">
+								<td class="tdcanton align-middle">UR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3B00C3">&nbsp;6 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/UR_Cases.png" alt="UR_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-OW">
+								<td class="tdcanton align-middle">OW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3900C5">&nbsp;6 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/OW_Cases.png" alt="OW_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TG">
+								<td class="tdcanton align-middle">TG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3900C5">&nbsp;6 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TG_Cases.png" alt="TG_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BS">
+								<td class="tdcanton align-middle">BS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3800C6">&nbsp;6 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BS_Cases.png" alt="BS_Cases"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BL">
+								<td class="tdcanton align-middle">BL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3700C7">&nbsp;6 cases&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BL_Cases.png" alt="BL_Cases"></td>
+							</tr>
+						</tbody>
+					</table> 
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Data from <a href="https://github.com/openZH/covid_19"><u>Kanton Z&uuml;rich Statistisches Amt</u></a></small>
+				</div>
+			</div>
+			<div class="card text-left bg-dark text-white card-beds" style="display:none">
+				<img class="img_CH" src="./img/CH_Beds.png" alt="CH_Beds">
+			</div>
+			<div class="card text-left bg-dark text-white card-beds" style="display:none">
+				<div class="table-responsive">
+					<table class="table table-image table-dark">
+						<thead class="thtable">
+							<tr>
+								<th class="thcanton" scope="col"><p></br></p></th>
+								<th class="thtrend" scope="col"></th>
+								<th class="thvalue" scope="col"><p>LAST</br>&nbsp;&nbsp;&nbsp;DAYS</p></th>
+								<th class="thimage" scope="col"><p>LAST</br>10 WEEKS</p></th>
+							</tr>
+						</thead>
+						<tbody class="tbtable">
+							<tr class="tr-canton tr-canton-AI">
+								<td class="tdcanton align-middle">AI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#7F007F">&nbsp;50 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AI_Beds.png" alt="AI_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-JU">
+								<td class="tdcanton align-middle">JU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#7F007F">&nbsp;50 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/JU_Beds.png" alt="JU_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GE">
+								<td class="tdcanton align-middle">GE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#680096">&nbsp;41 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GE_Beds.png" alt="GE_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-FR">
+								<td class="tdcanton align-middle">FR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#63009B">&nbsp;39 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/FR_Beds.png" alt="FR_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NE">
+								<td class="tdcanton align-middle">NE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#63009B">&nbsp;39 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NE_Beds.png" alt="NE_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VS">
+								<td class="tdcanton align-middle">VS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#63009B">&nbsp;39 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VS_Beds.png" alt="VS_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-OW">
+								<td class="tdcanton align-middle">OW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4700B7">&nbsp;28 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/OW_Beds.png" alt="OW_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TI">
+								<td class="tdcanton align-middle">TI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3A00C4">&nbsp;23 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TI_Beds.png" alt="TI_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GL">
+								<td class="tdcanton align-middle">GL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3800C6">&nbsp;22 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GL_Beds.png" alt="GL_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VD">
+								<td class="tdcanton align-middle">VD</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3800C6">&nbsp;22 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VD_Beds.png" alt="VD_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NW">
+								<td class="tdcanton align-middle">NW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2300DB">&nbsp;14 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NW_Beds.png" alt="NW_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZG">
+								<td class="tdcanton align-middle">ZG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2300DB">&nbsp;14 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZG_Beds.png" alt="ZG_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BE">
+								<td class="tdcanton align-middle">BE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2100DD">&nbsp;13 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BE_Beds.png" alt="BE_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BL">
+								<td class="tdcanton align-middle">BL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-2up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2100DD">&nbsp;13 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BL_Beds.png" alt="BL_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AR">
+								<td class="tdcanton align-middle">AR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1E00E0">&nbsp;12 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AR_Beds.png" alt="AR_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GR">
+								<td class="tdcanton align-middle">GR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1E00E0">&nbsp;12 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GR_Beds.png" alt="GR_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SG">
+								<td class="tdcanton align-middle">SG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1E00E0">&nbsp;12 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SG_Beds.png" alt="SG_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SO">
+								<td class="tdcanton align-middle">SO</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1E00E0">&nbsp;12 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SO_Beds.png" alt="SO_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SH">
+								<td class="tdcanton align-middle">SH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1C00E2">&nbsp;11 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SH_Beds.png" alt="SH_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AG">
+								<td class="tdcanton align-middle">AG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1900E5">&nbsp;10 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AG_Beds.png" alt="AG_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BS">
+								<td class="tdcanton align-middle">BS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1900E5">&nbsp;10 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BS_Beds.png" alt="BS_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TG">
+								<td class="tdcanton align-middle">TG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1900E5">&nbsp;10 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TG_Beds.png" alt="TG_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-LU">
+								<td class="tdcanton align-middle">LU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1600E8">&nbsp;9 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/LU_Beds.png" alt="LU_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SZ">
+								<td class="tdcanton align-middle">SZ</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1400EA">&nbsp;8 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SZ_Beds.png" alt="SZ_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-UR">
+								<td class="tdcanton align-middle">UR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1400EA">&nbsp;8 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/UR_Beds.png" alt="UR_Beds"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZH">
+								<td class="tdcanton align-middle">ZH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1400EA">&nbsp;8 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZH_Beds.png" alt="ZH_Beds"></td>
+							</tr>
+						</tbody>
+					</table> 
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Data from <a href="https://github.com/openZH/covid_19"><u>Kanton Z&uuml;rich Statistisches Amt</u></a></small>
+				</div>
+			</div>
+			<div class="card text-left bg-dark text-white card-icus" style="display:none">
+				<img class="img_CH" src="./img/CH_ICUs.png" alt="CH_ICUs">
+			</div>
+			<div class="card text-left bg-dark text-white card-icus" style="display:none">
+				<div class="table-responsive">
+					<table class="table table-image table-dark">
+						<thead class="thtable">
+							<tr>
+								<th class="thcanton" scope="col"><p></br></p></th>
+								<th class="thtrend" scope="col"></th>
+								<th class="thvalue" scope="col"><p>LAST</br>&nbsp;&nbsp;&nbsp;DAYS</p></th>
+								<th class="thimage" scope="col"><p>LAST</br>10 WEEKS</p></th>
+							</tr>
+						</thead>
+						<tbody class="tbtable">
+							<tr class="tr-canton tr-canton-JU">
+								<td class="tdcanton align-middle">JU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#FF0000">&nbsp;100 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/JU_ICUs.png" alt="JU_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VS">
+								<td class="tdcanton align-middle">VS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#EF000F">&nbsp;94 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VS_ICUs.png" alt="VS_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-FR">
+								<td class="tdcanton align-middle">FR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#C90035">&nbsp;79 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/FR_ICUs.png" alt="FR_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NE">
+								<td class="tdcanton align-middle">NE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#C4003A">&nbsp;77 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NE_ICUs.png" alt="NE_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AG">
+								<td class="tdcanton align-middle">AG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#960068">&nbsp;59 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AG_ICUs.png" alt="AG_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SO">
+								<td class="tdcanton align-middle">SO</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#8E0070">&nbsp;56 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SO_ICUs.png" alt="SO_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VD">
+								<td class="tdcanton align-middle">VD</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#82007C">&nbsp;51 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VD_ICUs.png" alt="VD_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NW">
+								<td class="tdcanton align-middle">NW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#7F007F">&nbsp;50 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NW_ICUs.png" alt="NW_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZG">
+								<td class="tdcanton align-middle">ZG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#7F007F">&nbsp;50 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZG_ICUs.png" alt="ZG_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GE">
+								<td class="tdcanton align-middle">GE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#6B0093">&nbsp;42 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GE_ICUs.png" alt="GE_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GR">
+								<td class="tdcanton align-middle">GR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#660099">&nbsp;40 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GR_ICUs.png" alt="GR_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TI">
+								<td class="tdcanton align-middle">TI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#63009B">&nbsp;39 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TI_ICUs.png" alt="TI_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BE">
+								<td class="tdcanton align-middle">BE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5E00A0">&nbsp;37 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BE_ICUs.png" alt="BE_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BS">
+								<td class="tdcanton align-middle">BS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5E00A0">&nbsp;37 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BS_ICUs.png" alt="BS_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TG">
+								<td class="tdcanton align-middle">TG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5600A8">&nbsp;34 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TG_ICUs.png" alt="TG_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AR">
+								<td class="tdcanton align-middle">AR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5400AA">&nbsp;33 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AR_ICUs.png" alt="AR_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GL">
+								<td class="tdcanton align-middle">GL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5400AA">&nbsp;33 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GL_ICUs.png" alt="GL_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SG">
+								<td class="tdcanton align-middle">SG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5400AA">&nbsp;33 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SG_ICUs.png" alt="SG_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BL">
+								<td class="tdcanton align-middle">BL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4C00B2">&nbsp;30 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BL_ICUs.png" alt="BL_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZH">
+								<td class="tdcanton align-middle">ZH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4400BA">&nbsp;27 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZH_ICUs.png" alt="ZH_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SH">
+								<td class="tdcanton align-middle">SH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3F00BF">&nbsp;25 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SH_ICUs.png" alt="SH_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-LU">
+								<td class="tdcanton align-middle">LU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-1up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3500C9">&nbsp;21 %&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/LU_ICUs.png" alt="LU_ICUs"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SZ">
+								<td class="tdcanton align-middle">SZ</td>
+								<td class="tdtrend align-middle"></td>
+								<td class="tdvalue align-middle"><p></p></td>
+								<td class="tdimage align-middle"><p>Not reported</p></td>
+							</tr>
+							<tr class="tr-canton tr-canton-UR">
+								<td class="tdcanton align-middle">UR</td>
+								<td class="tdtrend align-middle"></td>
+								<td class="tdvalue align-middle"><p></p></td>
+								<td class="tdimage align-middle"><p>Not reported</p></td>
+							</tr>
+						</tbody>
+					</table> 
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Data from <a href="https://github.com/openZH/covid_19"><u>Kanton Z&uuml;rich Statistisches Amt</u></a></small>
+				</div>
+			</div>
+			<div class="card text-left bg-dark text-white card-trends" style="display:none">
+				<img class="img_CH" src="./img/CH_Trends.png" alt="CH_Trends">
+			</div>
+			<div class="card text-left bg-dark text-white card-trends" style="display:none">
+				<div class="table-responsive">
+					<table class="table table-image table-dark">
+						<thead class="thtable">
+							<tr>
+								<th class="thcanton" scope="col"><p></br></p></th>
+								<th class="thtrend" scope="col"></th>
+								<th class="thvalue" scope="col"><p>LAST</br>14 DAYS</p></th>
+								<th class="thimage" scope="col"><p>LAST</br>10 WEEKS</p></th>
+							</tr>
+						</thead>
+						<tbody class="tbtable">
+							<tr class="tr-canton tr-canton-GL">
+								<td class="tdcanton align-middle">GL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5E00A0">&nbsp;27 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GL_Trends.png" alt="GL_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TI">
+								<td class="tdcanton align-middle">TI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5900A5">&nbsp;29 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TI_Trends.png" alt="TI_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SO">
+								<td class="tdcanton align-middle">SO</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5700A7">&nbsp;30 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SO_Trends.png" alt="SO_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-OW">
+								<td class="tdcanton align-middle">OW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-up fa-2up"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#5200AC">&nbsp;32 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/OW_Trends.png" alt="OW_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-FR">
+								<td class="tdcanton align-middle">FR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#4500B9">&nbsp;38 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/FR_Trends.png" alt="FR_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AG">
+								<td class="tdcanton align-middle">AG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3500C9">&nbsp;48 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AG_Trends.png" alt="AG_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-LU">
+								<td class="tdcanton align-middle">LU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3300CB">&nbsp;49 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/LU_Trends.png" alt="LU_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BL">
+								<td class="tdcanton align-middle">BL</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#3000CE">&nbsp;51 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BL_Trends.png" alt="BL_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NW">
+								<td class="tdcanton align-middle">NW</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2D00D1">&nbsp;53 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NW_Trends.png" alt="NW_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VD">
+								<td class="tdcanton align-middle">VD</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2500D9">&nbsp;60 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VD_Trends.png" alt="VD_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GR">
+								<td class="tdcanton align-middle">GR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#2100DD">&nbsp;63 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GR_Trends.png" alt="GR_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZH">
+								<td class="tdcanton align-middle">ZH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1B00E3">&nbsp;68 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZH_Trends.png" alt="ZH_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SH">
+								<td class="tdcanton align-middle">SH</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#1700E7">&nbsp;72 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SH_Trends.png" alt="SH_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AI">
+								<td class="tdcanton align-middle">AI</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AI_Trends.png" alt="AI_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-AR">
+								<td class="tdcanton align-middle">AR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/AR_Trends.png" alt="AR_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BE">
+								<td class="tdcanton align-middle">BE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BE_Trends.png" alt="BE_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-BS">
+								<td class="tdcanton align-middle">BS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/BS_Trends.png" alt="BS_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-GE">
+								<td class="tdcanton align-middle">GE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/GE_Trends.png" alt="GE_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-JU">
+								<td class="tdcanton align-middle">JU</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/JU_Trends.png" alt="JU_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-NE">
+								<td class="tdcanton align-middle">NE</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/NE_Trends.png" alt="NE_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SG">
+								<td class="tdcanton align-middle">SG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SG_Trends.png" alt="SG_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-SZ">
+								<td class="tdcanton align-middle">SZ</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-1down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/SZ_Trends.png" alt="SZ_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-TG">
+								<td class="tdcanton align-middle">TG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/TG_Trends.png" alt="TG_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-UR">
+								<td class="tdcanton align-middle">UR</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-4down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/UR_Trends.png" alt="UR_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-VS">
+								<td class="tdcanton align-middle">VS</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/VS_Trends.png" alt="VS_Trends"></td>
+							</tr>
+							<tr class="tr-canton tr-canton-ZG">
+								<td class="tdcanton align-middle">ZG</td>
+								<td class="tdtrend align-middle"><i class="fa fa-arrow-circle-down fa-2down"></i></td>
+								<td class="tdvalue align-middle"><span class="badge" style="background-color:#0000FF">&nbsp;>99 days&nbsp;</span></td>
+								<td class="tdimage align-middle"><img src="./img/ZG_Trends.png" alt="ZG_Trends"></td>
+							</tr>
+						</tbody>
+					</table> 
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Data from <a href="https://github.com/openZH/covid_19"><u>Kanton Z&uuml;rich Statistisches Amt</u></a></small>
+				</div>
+			</div>
+		<nav class="navbar navbar-dark navbar-expand justify-content-center fixed-bottom navbar-bottom text-white">
+			<div class="container">
+				<div class="btn-group btn-block" role="group" aria-label="Basic example">
+					<button type="button" class="btn btn-primary btn-sm btn-cases" onclick="showCases()"><i class="fa fa-signal"></i></br>&nbsp;Risk&nbsp;</button>
+					<button type="button" class="btn btn-primary btn-sm btn-trends" onclick="showTrends()"><i class="fa fa-chart-line"></i></br>Trends</button>
+					<button type="button" class="btn btn-primary btn-sm btn-beds" onclick="showBeds()"><i class="fa fa-procedures"></i></br>&nbsp;Beds&nbsp;</button>
+					<button type="button" class="btn btn-primary btn-sm btn-icus" onclick="showICU()"><i class="fa fa-syringe"></i></br>&nbsp;ICUs&nbsp;</button>
+				</div>
+			</div>
+		</nav>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js" integrity="sha512-Yk47FuYNtuINE1w+t/KT4BQ7JaycTCcrvlSvdK/jry6Kcxqg5vN7/svVWCxZykVzzJHaxXk5T9jnFemZHSYgnw==" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous"></script>
+		<script src="./js/swisscovid19.js"></script>
+	</body>
+</html>

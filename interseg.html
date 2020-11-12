@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sabina Sara Pfister by xanibas</title>
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="js/responsiveslides.min.js"></script> 
+
+	<script>
+  		$(function() {
+    		$(".rslides").responsiveSlides({
+        	auto: true,
+        	pager: false,
+        	speed: 3000,
+        	maxwidth: 800,
+        	fade: 5000
+        	});
+      });
+	</script>
+
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <header>
+        <h1>Sabina Sara Pfister</h1>
+        <p>Neuroscientists, Software Developer, Open Source Enthusiast</p>
+
+
+        <p class="view"><a href="https://github.com/xanibas">View My GitHub Profile</a></p>
+
+      </header>
+      <section>
+
+<!-- Title -->
+<h1>INTERSEG: Interactive 3D Segmentation</h1>
+
+<!-- Slideshow -->
+<ul class="rslides">
+  <li><img src="./images/ex_2.png" alt=""></li>
+  <li><img src="./images/ex_3.png" alt=""></li>
+  <li><img src="./images/ex_2.png" alt=""></li>
+  <li><img src="./images/ex_1.png" alt=""></li>
+</ul>
+
+<br>
+<br>
+
+ <!-- Text -->
+  <p align="justify"><b>Description</b></p>
+  
+  <p align="justify">Fluorescence microscopy enables the visualization of cellular components through the use of fuorescent tags. Automated and reliable identification of single cells in stacks of microscopic images is necessary to quantify the expression levels of different transcription factors in tissues, whcih provides valuable information about the different progenitor cell subpopulations and their spacial relationships. To address this needs, we developed InterSeg and a user friendly interface.</p>
+  
+  <p align="justify"><b>InterSeg</b> is a collection of java plugins in <a href="http://rsbweb.nih.gov/ij/">ImageJ</a> for the semi-automatic 2D/3D segmentation of convex cells on tissue slices images, quantification of fluorescent staining and counting of cells in specific regions of interest (ROIs). The software can handle arbitrarily large images and efficiently detect the borders of single cells. Given the ability to integrate input in form of minimal user operations, we are able to segment cells even in difficult conditions such as poor image contrast, highly densely packed cells and different convex cell morphologies.</p>
+
+  <p align="justify">Our software has several advantages over previous implementations:</p>
+  <ul>
+    <li>Use of a general segmentation algorithm, since no assumption on the cell shape, density or contrast is made.</li>
+    <li>Local algorithm, which can exploit multi-core machines to speed up image processing and scalable to any image size.</li>
+    <li>Possibility of user intervention during the identification of the cell locations.</li>
+    <li>User friendly interface by integration in ImageJ and full automatized process pipeline.</li>
+    <li>Open source code released under the <a href="http://www.gnu.org/licenses/gpl.html">GNU Public License</a>.</li>
+  </ul>
+  </p>
+  
+  <p align="justify"><b>Source code</b></p>
+
+  <p align="justify">The algorithm and results are described in <a href="10.1109/ISBI.2013.6556503">Pfister et al, Robust 3D cell segmentation by local region growing in convex volumes, Biomedical Imaging (ISBI), 2013 IEEE</a>.</p>
+  
+  <p align="justify">Currently in beta test. Code will be shortly available.</p>
+
+      </section>
+      <footer>
+      
+        <p>
+        <a href="https://github.com/xanibas" target="_self">
+          <img src="icons/github.png" alt="Github" />
+        </a>
+        <a href="http://www.linkedin.com/pub/sabina-pfister/1b/229/284" target="_self">
+          <img src="icons/linkedin.png" alt="LinkedIn" />
+        </a>
+        <a href="https://plus.google.com/114824136410137507955/posts" target="_self">
+          <img src="icons/google.png" alt="google+" />
+        </a>
+        <a href="MailTo:xanibas@gmail.com" target="_self">
+          <img src="icons/mail.png" alt="E-mail" />
+        </a>
+        </p>
+
+
+      </footer>
+    </div>
+    <script src="js/scale.fix.js"></script>
+    
+  </body>
+</html>
