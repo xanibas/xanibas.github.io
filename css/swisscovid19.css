@@ -111,6 +111,14 @@ table td:nth-last-child(3) {
     text-align: right;
 }
 
+.tdcanton,
+.tdtrend,
+.tdvalue,
+.tdimage {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+
 .fa-4up {
   color: #ffffff !important;
 }
