@@ -61,7 +61,6 @@ a {
     font-size: 3rem;
     font-weight: 300;
     line-height: 1.2;
-    /*border-bottom: 1px solid #666666;*/
 }
 
 .lead {
@@ -119,6 +118,10 @@ a {
   background-color: #262626 !important;
 }
 
+.table td {
+  border-top: 0px solid red !important;
+}
+
 .thcanton,
 .thtrend,
 .thvalue,
@@ -139,8 +142,8 @@ table td:nth-last-child(3) {
 .tdtrend,
 .tdvalue,
 .tdimage {
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
 }
 
 .fa-4up {
