@@ -43,14 +43,6 @@ var showCases = function() {
 	for(var i = 0; i < cards.length; i++)
 		cards[i].style.display = "block";
 
-	var cards = document.getElementsByClassName("jumbotron");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "none";
-
-	var cards = document.getElementsByClassName("jumbotron-cases");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "block";
-
 	$(window).scrollTop(0);
 
 	$(".btn.btn-primary.btn-sm.btn-cases").focus();
@@ -63,14 +55,6 @@ var showTests = function() {
 		cards[i].style.display = "none";
 
 	var cards = document.getElementsByClassName("card-tests");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "block";
-
-	var cards = document.getElementsByClassName("jumbotron");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "none";
-
-	var cards = document.getElementsByClassName("jumbotron-tests");
 	for(var i = 0; i < cards.length; i++)
 		cards[i].style.display = "block";
 
@@ -89,14 +73,6 @@ var showBeds = function() {
 	for(var i = 0; i < cards.length; i++)
 		cards[i].style.display = "block";
 
-	var cards = document.getElementsByClassName("jumbotron");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "none";
-
-	var cards = document.getElementsByClassName("jumbotron-beds");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "block";
-
 	$(window).scrollTop(0);
 
 	$(".btn.btn-primary.btn-sm.btn-beds").focus();
@@ -112,14 +88,6 @@ var showICU = function() {
 	for(var i = 0; i < cards.length; i++)
 		cards[i].style.display = "block";
 
-	var cards = document.getElementsByClassName("jumbotron");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "none";
-
-	var cards = document.getElementsByClassName("jumbotron-icus");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "block";
-
 	$(window).scrollTop(0);
 
 	$(".btn.btn-primary.btn-sm.btn-icus").focus();
@@ -132,14 +100,6 @@ var showTrends = function() {
 		cards[i].style.display = "none";
 
 	var cards = document.getElementsByClassName("card-trends");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "block";
-
-	var cards = document.getElementsByClassName("jumbotron");
-	for(var i = 0; i < cards.length; i++)
-		cards[i].style.display = "none";
-
-	var cards = document.getElementsByClassName("jumbotron-trends");
 	for(var i = 0; i < cards.length; i++)
 		cards[i].style.display = "block";
 
