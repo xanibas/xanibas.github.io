@@ -12,6 +12,37 @@ a {
   width: 100%;
 }
 
+/*.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index:1000;
+}*/
+
+/*.carousel {
+  padding:30px;
+  width: 100%;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+   position:absolute;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}*/
+
 .card-footer {
   border: none !important;
 }
@@ -142,8 +173,8 @@ table td:nth-last-child(3) {
 .tdtrend,
 .tdvalue,
 .tdimage {
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
 }
 
 .fa-4up {

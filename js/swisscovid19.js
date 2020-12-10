@@ -48,6 +48,21 @@ var showCases = function() {
 	$(".btn.btn-primary.btn-sm.btn-cases").focus();
 }
 
+var showDeads = function() {
+
+	var cards = document.getElementsByClassName("card");
+	for(var i = 0; i < cards.length; i++)
+		cards[i].style.display = "none";
+
+	var cards = document.getElementsByClassName("card-deads");
+	for(var i = 0; i < cards.length; i++)
+		cards[i].style.display = "block";
+
+	$(window).scrollTop(0);
+
+	$(".btn.btn-primary.btn-sm.btn-deads").focus();
+}
+
 var showTests = function() {
 
 	var cards = document.getElementsByClassName("card");
