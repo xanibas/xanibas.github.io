@@ -78,6 +78,21 @@ var showTests = function() {
 	$(".btn.btn-primary.btn-sm.btn-tests").focus();
 }
 
+var showVaccinations = function() {
+
+	var cards = document.getElementsByClassName("card");
+	for(var i = 0; i < cards.length; i++)
+		cards[i].style.display = "none";
+
+	var cards = document.getElementsByClassName("card-vaccinations");
+	for(var i = 0; i < cards.length; i++)
+		cards[i].style.display = "block";
+
+	$(window).scrollTop(0);
+
+	$(".btn.btn-primary.btn-sm.btn-vaccinations").focus();
+}
+
 var showBeds = function() {
 
 	var cards = document.getElementsByClassName("card");
@@ -121,4 +136,19 @@ var showTrends = function() {
 	$(window).scrollTop(0);
 
 	$(".btn.btn-primary.btn-sm.btn-trends").focus();
+}
+
+var showRisk = function() {
+
+	var cards = document.getElementsByClassName("card");
+	for(var i = 0; i < cards.length; i++)
+		cards[i].style.display = "none";
+
+	var cards = document.getElementsByClassName("card-risk");
+	for(var i = 0; i < cards.length; i++)
+		cards[i].style.display = "block";
+
+	$(window).scrollTop(0);
+
+	$(".btn.btn-primary.btn-sm.btn-risk").focus();
 }
