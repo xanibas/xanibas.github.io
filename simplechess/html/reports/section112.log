@@ -24,7 +24,7 @@ getTurn(board)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAssertionError[0m                            Traceback (most recent call last)
-[0;32m/tmp/ipykernel_253404/1010622590.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_13891/1010622590.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mboard[0m[0;34m.[0m[0mpush[0m[0;34m([0m[0mchess[0m[0;34m.[0m[0mMove[0m[0;34m.[0m[0mfrom_uci[0m[0;34m([0m[0;34m'b1b6'[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0mdisplay[0m[0;34m([0m[0mdisplayBoard[0m[0;34m([0m[0mboard[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      3[0m [0mgetTurn[0m[0;34m([0m[0mboard[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
